@@ -59,20 +59,20 @@ body = dashboardBody(
         box(
           title = "Annual CO2 Emissions",
           # width = 4,
-          plotOutput("annual")
+          plotlyOutput("annual")
         ),
         box(
           title = "Cumulative CO2 Emissions",
           # width = 4,
-          plotOutput("cumulative")
+          plotlyOutput("cumulative")
         ),
         box(
           title = "Per Capita CO2 Emissions",
-          plotOutput("percapita")
+          plotlyOutput("percapita")
         ),
         box(
           title = "Per GDP CO2 Emissions",
-          plotOutput("pergdp")
+          plotlyOutput("pergdp")
         )
       )
     ),
@@ -83,17 +83,17 @@ body = dashboardBody(
         box(
           title = "Total Greenhouse Gas Emissions",
           # width = 4,
-          plotOutput("total_ghg")
+          plotlyOutput("total_ghg")
         ),
         box(
           title = "Total Greenhouse Gas Emissions per Capita",
           # width = 4,
-          plotOutput("ghg_per_capita")
+          plotlyOutput("ghg_per_capita")
         ),
         box(
           title = "Total Greenhouse Gas Emissions per Sector",
           # width = 4,
-          plotOutput("ghg_per_sector"),
+          plotlyOutput("ghg_per_sector"),
           sliderInput("ghg_year", "Select Year", min = 1990, max = 2019, value = 2019, step = 1, sep = "")
         )
       )
@@ -105,22 +105,22 @@ body = dashboardBody(
         box(
           title = "Primary Energy Consumption",
           # width = 4,
-          plotOutput("primary_energy_consumption")
+          plotlyOutput("primary_energy_consumption")
         ),
         box(
           title = "CO2 per Unit Energy",
           # width = 4,
-          plotOutput("co2_per_unit_energy")
+          plotlyOutput("co2_per_unit_energy")
         ),
         box(
           title = "Energy per Capita",
           # width = 4,
-          plotOutput("energy_per_capita")
+          plotlyOutput("energy_per_capita")
         ),
         box(
           title = "Energy per GDP",
           # width = 4,
-          plotOutput("energy_per_gdp")
+          plotlyOutput("energy_per_gdp")
         )
       )
     )

@@ -6,7 +6,7 @@ library(writexl)
 # import CO2 data from our world in data from web source
 # replace github.com/ with raw.githubusercontent.com/ remove blob/
 data_url <- "https://raw.githubusercontent.com/owid/co2-data/master/owid-co2-data.csv"
-data_source = "C:/Users/manun/Downloads/owid-co2-data.csv"
+data_source = "owid-co2-data.csv"
 data_raw <- read_csv(data_source)
 data_web = read_csv(data_url)
 
