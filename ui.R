@@ -18,9 +18,9 @@ sidebar = dashboardSidebar(
   #   name = "Select Countries"
   # ),
   selectizeInput(
-    "countries_select",
-    label = "Select Countries (Max 4)",
-    choices = unique(data %>% filter(!is.na(iso_code)) %>% select(country)),
+    "select_data",
+    label = "Select Data (Max 4)",
+    choices = unique(data %>% select(country)), # %>% filter(!is.na(iso_code)) if non-country data to be removed
     selected = NULL,
     multiple = TRUE,
     options = list(

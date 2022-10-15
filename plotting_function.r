@@ -14,7 +14,7 @@ plot_linechart = function(data, data_x, data_y, xlabel, ylabel, line_colour, cap
       # title = title, 
       # subtitle = ifelse(missing(subtitle), '', subtitle),
       caption = ifelse(missing(caption), '', caption),
-      color = "Country"
+      color = "Data"
     ) +
     xlab(xlabel) + ylab(ylabel) +
     theme(
@@ -47,16 +47,17 @@ plot_linechart = function(data, data_x, data_y, xlabel, ylabel, line_colour, cap
 
 
 
-# areachart
+# areachart (currently not used)
 plot_areachart = function(data, data_x, data_y, xlabel, ylabel, fill_colour, caption){
-  data %>% 
+  
+  data %>% arrange(data_y) %>% 
     ggplot(aes(x = data_x, y = data_y, fill = fill_colour)) +
       geom_area(alpha = 0.4) +
       labs(
         # title = title, 
         # subtitle = ifelse(missing(subtitle), '', subtitle),
         caption = ifelse(missing(caption), '', caption),
-        color = "Country"
+        color = "Data"
       ) +
       xlab(xlabel) + ylab(ylabel) +
       theme(
@@ -97,7 +98,7 @@ plot_barchart = function(data, data_x, data_y, Country, xlabel, ylabel,title, su
     labs(
       subtitle = ifelse(missing(subtitle), '', subtitle),
       caption = ifelse(missing(caption), '', caption),
-      color = "Country"
+      color = "Data"
     ) +
     xlab(xlabel) + ylab(ylabel) +
     theme(
@@ -127,5 +128,4 @@ plot_barchart = function(data, data_x, data_y, Country, xlabel, ylabel,title, su
   
   
 }
-
 

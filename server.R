@@ -16,17 +16,17 @@ server = function(input, output) {
   
   # Filter selected countries from dropdown menu
   data_to_plot = reactive({
-    req(input$countries_select)
+    req(input$select_data)
     data %>%
-      filter(country %in% input$countries_select)
+      filter(country %in% input$select_data)
     
   })
   
   # Filter selected countries from dropdown menu
   data_ghg_to_plot = reactive({
-    req(input$countries_select)
+    req(input$select_data)
     data_ghg %>%
-      filter(country %in% input$countries_select) %>% 
+      filter(country %in% input$select_data) %>% 
       filter(!sector %in% c('Total excluding LUCF', 'Total including LUCF'))
   })
   
@@ -49,7 +49,7 @@ server = function(input, output) {
   output$cumulative = renderPlotly({
     
     ggplotly(
-      plot_areachart(data_to_plot(), data_x = data_to_plot()$year, data_y = data_to_plot()$co2, fill_colour = data_to_plot()$country,
+      plot_linechart(data_to_plot(), data_x = data_to_plot()$year, data_y = data_to_plot()$cumulative_co2, line_colour = data_to_plot()$country,
                      xlabel = 'Year', ylabel = 'Cumulative CO2 Emission (million tonnes)',
                      caption = 'Represents the total sum of CO2 emissions produced from fossil fuel and cement production only')
     )
@@ -84,7 +84,7 @@ server = function(input, output) {
     
     ggplotly(
       plot_linechart(data_to_plot(), data_x = data_to_plot()$year, data_y = data_to_plot()$total_ghg, line_colour = data_to_plot()$country, 
-                     xlabel = 'Year', ylabel = 'Million tonnes of carbon dioxide-equivalents', 
+                     xlabel = 'Year', ylabel = 'Million tonnes of CO2-equivalents', 
                      caption = 'Iincluding land-use change and forestry') + xlim(1990, 2019)
     )
     
@@ -95,7 +95,7 @@ server = function(input, output) {
     
     ggplotly(
       plot_linechart(data_to_plot(), data_x = data_to_plot()$year, data_y = data_to_plot()$ghg_per_capita, line_colour = data_to_plot()$country, 
-                     xlabel = 'Year', ylabel = 'Tonnes of carbon dioxide-equivalents per capita', 
+                     xlabel = 'Year', ylabel = 'Tonnes of CO2-equivalents per capita', 
                      caption = 'Iincluding land-use change and forestry') + xlim(1990, 2019)
     )
     
