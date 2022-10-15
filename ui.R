@@ -93,7 +93,7 @@ body = dashboardBody(
         ),
         box(
           title = "Total Greenhouse Gas Emissions per Sector",
-          # width = 4,
+          width = 12,
           plotlyOutput("ghg_per_sector"),
           sliderInput("ghg_year", "Select Year", min = 1990, max = 2019, value = 2019, step = 1, sep = "")
         )
